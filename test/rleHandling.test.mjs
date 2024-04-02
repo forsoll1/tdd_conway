@@ -1,7 +1,6 @@
 import { describe, test, beforeEach, afterEach, beforeAll } from "vitest";
 import { expect } from "chai";
 import { rleHandler } from "../src/rleHandler.mjs"
-import exp from "constants";
 const fs = require("fs")
 
 let filePath = "./patterns/foo.txt"
@@ -76,4 +75,20 @@ IGNORELINE2`
     expect(result).to.deep.equal([[1,0],[2,1],[0,2],[1,2],[2,2]])
   })
 
+
+  test("Give filename to rleHandler constructor, get active coordinates and pattern rules as properties", () => {
+    let msg = 
+`#N Glider
+#O Richard K. Guy
+#C The smallest, most common, and first discovered spaceship. Diagonal, has period 4 and speed c/4.
+#C www.conwaylife.com/wiki/index.php?title=Glider
+x = 3, y = 3, rule = B3/S23
+bob$2bo$3o!
+IGNORELINE
+IGNORELINE2`
+    createFile(msg)
+    let handler = new rleHandler(fileName)
+    expect(handler.coordinates).to.deep.equal([[1,0],[2,1],[0,2],[1,2],[2,2]])
+    expect(handler.rules).to.deep.equal({B:[3], S:[2,3]})
+  })
 });

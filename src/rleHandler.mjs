@@ -2,6 +2,16 @@ import * as fs from "fs"
 
 export class rleHandler{
 
+    coordinates;
+    rules;
+
+    constructor(fileName = null){
+        if(fileName){
+            let lines = this.removeUselessLines(this.readFile(fileName))
+            this.rules = this.getRuleFromRLELine(lines[0])
+            this.coordinates = this.getActiveCoordinates(this.patternAsChars(lines[1]))
+        }
+    }
 
     readFile(fileName){
         try {
