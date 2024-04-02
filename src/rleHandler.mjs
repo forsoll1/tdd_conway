@@ -52,4 +52,24 @@ export class rleHandler{
         }
         return chars
     }
+
+    getActiveCoordinates(chars){
+        let coordinates = []
+        let x = 0
+        let y = 0
+        for (const i of chars) {
+            if (i === "o"){
+                coordinates.push([x,y])
+                x += 1
+                continue
+            }
+            if(i === "b"){
+                x += 1
+                continue
+            }
+            x = 0
+            y += 1
+        }
+        return coordinates
+    }
 }

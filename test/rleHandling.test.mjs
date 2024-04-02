@@ -70,4 +70,10 @@ IGNORELINE2`
     expect(result).to.deep.equal(["b","o","b","$","b","b","o","$","o","o","o"])
   })
 
+  test("Get XY coordinates for 'o' symbols in pattern", () => {
+    let chars = ["b","o","b","$","b","b","o","$","o","o","o"]
+    let result = rle.getActiveCoordinates(chars)
+    expect(result).to.deep.equal([[1,0],[2,1],[0,2],[1,2],[2,2]])
+  })
+
 });
