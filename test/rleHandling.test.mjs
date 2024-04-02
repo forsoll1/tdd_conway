@@ -64,4 +64,10 @@ IGNORELINE2`
     expect(result).to.deep.equal({B:[3], S:[2,3]})
   })
 
+  test("Separate pattern code into individual characters", () => {
+    let pattern = "bob$2bo$3o!"
+    let result = rle.patternAsChars(pattern)
+    expect(result).to.deep.equal(["b","o","b","$","b","b","o","$","o","o","o"])
+  })
+
 });

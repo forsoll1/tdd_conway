@@ -35,4 +35,21 @@ export class rleHandler{
         let result = {B: bNums, S: sNums}
         return result
     }
+
+    patternAsChars(pattern){
+        pattern = pattern.replace(/\s|!/g, "")
+        let matches = pattern.match(/\d*[oObB$]/g)
+        let chars = []
+        for (const i of matches) {
+            if(i.length === 1){
+                chars.push(i)
+                continue
+            }
+            let num = Number(i.slice(0, -1))
+            for (let j = 0; j < num; j++) {
+                chars.push(i[i.length-1])
+            }
+        }
+        return chars
+    }
 }
