@@ -32,8 +32,11 @@ export class rleHandler{
         if(counter > -1){
             rleLines.splice(0, counter + 1)
         }
-        if(rleLines.length > 2){ rleLines.splice(2)
-        }
+        let patternLine;
+        patternLine = rleLines.splice(1).join("")
+        patternLine = patternLine.replace(/\s/g, "")
+        patternLine = patternLine.match(/^[^!]+/)[0]
+        rleLines = [rleLines[0], patternLine]
         return rleLines
     }
 

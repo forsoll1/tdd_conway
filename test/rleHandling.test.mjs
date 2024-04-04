@@ -54,7 +54,23 @@ IGNORELINE2`
     createFile(msg)
     let data = rle.readFile(fileName)
     let result = rle.removeUselessLines(data)
-    expect(result).to.deep.equal(["x = 3, y = 3, rule = B3/S23", "bob$2bo$3o!"])
+    expect(result).to.deep.equal(["x = 3, y = 3, rule = B3/S23", "bob$2bo$3o"])
+  })
+
+  test("Correctly read long multiline pattern", () => {
+    let msg = 
+`#N p64piheptominohassler2.rle
+#C https://conwaylife.com/wiki/Figure_eight
+#C https://www.conwaylife.com/patterns/p64piheptominohassler2.rle
+x = 30, y = 30, rule = B3/S23
+2o26b2o$2obo22bob2o$4bo20bo$bo26bo$2bob2o18b2obo$4b2o18b2o2$9b2o8b2o$
+9bobo6bobo$11bo6bo$9bobo6bobo$9b2o8b2o7$9b2o8b2o$9bobo6bobo$11bo6bo$9b
+obo6bobo$9b2o8b2o2$4b2o18b2o$2bob2o18b2obo$bo26bo$4bo20bo$2obo22bob2o$
+2o26b2o!`
+    createFile(msg)
+    let data = rle.readFile(fileName)
+    let result = rle.removeUselessLines(data)
+    expect(result).to.deep.equal(["x = 30, y = 30, rule = B3/S23", "2o26b2o$2obo22bob2o$4bo20bo$bo26bo$2bob2o18b2obo$4b2o18b2o2$9b2o8b2o$9bobo6bobo$11bo6bo$9bobo6bobo$9b2o8b2o7$9b2o8b2o$9bobo6bobo$11bo6bo$9bobo6bobo$9b2o8b2o2$4b2o18b2o$2bob2o18b2obo$bo26bo$4bo20bo$2obo22bob2o$2o26b2o"])
   })
 
   test("Return 'rules' of RLE file", () => {
