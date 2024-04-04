@@ -7,7 +7,7 @@ This is an application that simulates Conway's Game of Life. It reads a Game of 
 1. Add the RLE file you wish to use to /patterns directory
 2. Run "node app.mjs" at root
 3. The application asks for the pattern file name and the number of generations the game simulates
-4. The resulting RLE pattern is outputed to console
+4. The resulting RLE pattern is outputted to console
 
 ## Prerequisites
 
