@@ -1,6 +1,13 @@
-# New JavaScript Project
+# Javascript project for Conway's Game of Life
 
-An empty project with JavaScript testing tools preconfigured. Do whatever you like with it.
+This is an application that simulates Conway's Game of Life. It reads a Game of Life pattern from an RLE-format file, asks for the amount of generations that pattern "lives" and outputs the resulting RLE pattern to console. 
+
+## How to use
+
+1. Add the RLE file you wish to use to /patterns directory
+2. Run "node app.js" at root
+3. The application asks for the pattern file name and the number of generations the game simulates
+4. The resulting RLE pattern is outputed to console
 
 ## Prerequisites
 
@@ -17,7 +24,3 @@ Run tests once
 Run tests continuously
 
     npm run autotest
-
-Code reformat
-
-    npm run format
